@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+{%load static%}
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Django level two</title>
+		<link rel="stylesheet" href="{% static "css/style.css" %}">
+	</head>
+	<body>
+		<h1>Hello this is index.html</h1>
+		<h2>Here are your access records:</h2>
+		<div class="django_two">
+			{% if access_records%}
+			<table>
+				<thead>
+					<th>site name</th>
+					<th>date accessed</th>
+				</thead>
+
+				{%for acc in access_records%}
+				<tr>
+					<td>{{ acc.name }}</td>
+					<td>{{ acc.date }}</td>
+				</tr>
+				{% endfor %}
+			</table>
+			{% else %}
+			<p>No access records found</p>
+			{% endif %}
+		</div>
+	</body>
+</html>
