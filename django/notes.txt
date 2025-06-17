@@ -1,0 +1,2 @@
+django-admin start_project project
+django-admin startapp app
