@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My First Vue App</title>
+    <!-- Bring Vue in from the internet -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  </head>
+  <body>
+    <!-- This is where Vue will control -->
+    <div id="app">
+      <h1>Hello, {{ name }}, what is your {{ hobby }} 👋</h1>
+      <button @click="sayHi">Click me!</button>
+    </div>
+
+    <script>
+      // Tell Vue what to do
+      const app = Vue.createApp({
+        data() {
+          return {
+            name: "Iron man", // your name
+            hobby: "game" // your name
+          }
+        },
+        methods: {
+          sayHi() {
+            alert("Hi " + this.hobby + "!")
+          }
+        }
+      })
+      app.mount("#app") // connect Vue to the <div>
+    </script>
+  </body>
+</html>

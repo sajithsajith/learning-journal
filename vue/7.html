@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Vue Quick Play</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <style>
+      button {
+        margin-top: 8px;
+        padding: 6px 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <h1>Hello, {{ msg }} 👋</h1>
+    </div>
+
+    <script>
+      const app = Vue.createApp({
+        setup() {
+          const msg = Vue.ref("waiting");
+          Vue.onMounted(() => {
+            console.log("App is mounted — DOM ready");
+            // pretend fetch with setTimeout
+            setTimeout(() => {
+              msg.value = "data loaded";
+            }, 800);
+          });
+
+          Vue.watch(msg, (newVal, oldVal) => {
+            console.log("msg changed:", oldVal, "→", newVal);
+          });
+
+          return { msg };
+        },
+      });
+      app.mount("#app");
+    </script>
+  </body>
+</html>

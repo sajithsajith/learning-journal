@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Vue Quick Play</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <style>
+      button {
+        margin-top: 8px;
+        padding: 6px 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <input v-model="name" placeholder="Type your name" />
+      <p>Hello {{ name }}</p>
+    </div>
+
+    <script>
+      const app = Vue.createApp({
+        data() {
+          return { name: "" };
+        },
+      });
+      app.mount("#app");
+    </script>
+  </body>
+</html>

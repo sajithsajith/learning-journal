@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Vue Quick Play</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <style>
+      button {
+        margin-top: 8px;
+        padding: 6px 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <button @click="show = !show">Toggle message</button>
+      <p v-if="show">Now you see me 👀</p>
+
+      <h3>Fruits</h3>
+      <ul>
+        <li v-for="(f, i) in fruits" :key="i">{{ i+1 }}. {{ f }}</li>
+      </ul>
+
+      <p :class="{ red: isRed }">This text can turn red.</p>
+      <button @click="isRed = !isRed">Toggle color</button>
+    </div>
+
+    <script>
+      const app = Vue.createApp({
+        data() {
+          return {
+            show: true,
+            fruits: ["apple", "banana", "mango"],
+            isRed: false,
+          };
+        },
+      });
+      app.mount("#app");
+    </script>
+
+    <style>
+      .red {
+        color: red;
+      }
+    </style>
+  </body>
+</html>
